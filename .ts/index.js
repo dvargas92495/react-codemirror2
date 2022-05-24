@@ -18,7 +18,7 @@ var React = require("react");
 var SERVER_RENDERED = (typeof navigator === 'undefined' || (typeof global !== 'undefined' && global['PREVENT_CODEMIRROR_RENDER'] === true));
 var cm;
 if (!SERVER_RENDERED) {
-    cm = require('codemirror');
+    cm = require('@dvargas92495/codemirror');
 }
 var Helper = (function () {
     function Helper() {
