@@ -62,14 +62,14 @@ Since codemirror ships mostly unconfigured, the user is left with the responsibi
 > note that the base codemirror.css file is required in all use cases
 
 ```css
-@import 'codemirror/lib/codemirror.css';
-@import 'codemirror/theme/material.css';
+@import '@dvargas92495/codemirror/lib/codemirror.css';
+@import '@dvargas92495/codemirror/theme/material.css';
 ```
 
 ```jsx
 import CodeMirror from 'react-codemirror2';
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/javascript/javascript');
+require('@dvargas92495/codemirror/mode/xml/xml');
+require('@dvargas92495/codemirror/mode/javascript/javascript');
 ```
 
 ## props

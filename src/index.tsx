@@ -8,7 +8,7 @@ const SERVER_RENDERED = (typeof navigator === 'undefined' || (typeof global !== 
 
 let cm;
 if (!SERVER_RENDERED) {
-  cm = require('codemirror');
+  cm = require('@dvargas92495/codemirror');
 }
 
 export interface IDefineModeOptions {

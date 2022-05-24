@@ -67,7 +67,7 @@ var SERVER_RENDERED = typeof navigator === 'undefined' || typeof global !== 'und
 var cm;
 
 if (!SERVER_RENDERED) {
-  cm = require('codemirror');
+  cm = require('@dvargas92495/codemirror');
 }
 
 var Helper = function() {
