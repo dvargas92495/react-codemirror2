@@ -53,14 +53,14 @@
     "code"
   ],
   "peerDependencies": {
-    "codemirror": "5.x",
+    "@dvargas92495/codemirror": "5.x",
     "react": ">=17.x"
   },
   "devDependencies": {
     "@babel/preset-env": "7.10.1",
     "@babel/preset-react": "7.10.1",
+    "@dvargas92495/codemirror": "^5.65.9",
     "@nteract/mockument": "1.0.4",
-    "@types/codemirror": "0.0.x",
     "@types/jest": "25.2.3",
     "@types/react": "16.9.35",
     "babel-core": "6.26.3",
