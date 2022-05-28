@@ -4,12 +4,7 @@ import * as codemirror from 'codemirror';
 declare let global: any;
 declare let require: any;
 
-const SERVER_RENDERED = (typeof navigator === 'undefined' || (typeof global !== 'undefined' && global['PREVENT_CODEMIRROR_RENDER'] === true));
-
-let cm;
-if (!SERVER_RENDERED) {
-  cm = require('@dvargas92495/codemirror');
-}
+let cm = require('@dvargas92495/codemirror');
 
 export interface IDefineModeOptions {
   fn: () => codemirror.Mode<any>;
@@ -400,8 +395,6 @@ export class Controlled extends React.Component<IControlledCodeMirror, any> {
   constructor(props: IControlledCodeMirror) {
     super(props);
 
-    if (SERVER_RENDERED) return;
-
     this.applied = false;
     this.appliedNext = false;
     this.appliedUserDefined = false;
@@ -508,8 +501,6 @@ export class Controlled extends React.Component<IControlledCodeMirror, any> {
   /** @internal */
   public componentDidMount() {
 
-    if (SERVER_RENDERED) return;
-
     if (this.props.defineMode) {
       if (this.props.defineMode.name && this.props.defineMode.fn) {
         cm.defineMode(this.props.defineMode.name, this.props.defineMode.fn);
@@ -580,8 +571,6 @@ export class Controlled extends React.Component<IControlledCodeMirror, any> {
   /** @internal */
   public componentDidUpdate(prevProps) {
 
-    if (SERVER_RENDERED) return;
-
     let preserved: IPreservedOptions = {cursor: null};
 
     if (this.props.value !== prevProps.value) {
@@ -606,8 +595,6 @@ export class Controlled extends React.Component<IControlledCodeMirror, any> {
   /** @internal */
   public componentWillUnmount() {
 
-    if (SERVER_RENDERED) return;
-
     if (this.props.editorWillUnmount) {
       this.props.editorWillUnmount(cm);
     }
@@ -615,13 +602,11 @@ export class Controlled extends React.Component<IControlledCodeMirror, any> {
 
   /** @internal */
   public shouldComponentUpdate(nextProps, nextState) {
-    return !SERVER_RENDERED
+    return true;
   }
 
   /** @internal */
   public render() {
-
-    if (SERVER_RENDERED) return null;
 
     let className = this.props.className ? `react-codemirror2 ${this.props.className}` : 'react-codemirror2';
 
@@ -657,8 +642,6 @@ export class UnControlled extends React.Component<IUnControlledCodeMirror, any> 
   /** @internal */
   constructor(props: IUnControlledCodeMirror) {
     super(props);
-
-    if (SERVER_RENDERED) return;
 
     this.applied = false;
     this.appliedUserDefined = false;
@@ -708,8 +691,6 @@ export class UnControlled extends React.Component<IUnControlledCodeMirror, any> 
 
   /** @internal */
   public componentDidMount() {
-
-    if (SERVER_RENDERED) return;
 
     this.detached = (this.props.detach === true);
 
@@ -778,7 +759,7 @@ export class UnControlled extends React.Component<IUnControlledCodeMirror, any> 
       }
     }
 
-    if (SERVER_RENDERED || this.detached) return;
+    if (this.detached) return;
 
     let preserved: IPreservedOptions = {cursor: null};
 
@@ -808,8 +789,6 @@ export class UnControlled extends React.Component<IUnControlledCodeMirror, any> 
   /** @internal */
   public componentWillUnmount() {
 
-    if (SERVER_RENDERED) return;
-
     if (this.props.editorWillUnmount) {
       this.props.editorWillUnmount(cm);
     }
@@ -820,7 +799,6 @@ export class UnControlled extends React.Component<IUnControlledCodeMirror, any> 
 
     let update = true;
 
-    if (SERVER_RENDERED) update = false;
     if (this.detached && nextProps.detach) update = false;
 
     return update;
@@ -828,8 +806,6 @@ export class UnControlled extends React.Component<IUnControlledCodeMirror, any> 
 
   /** @internal */
   public render() {
-
-    if (SERVER_RENDERED) return null;
 
     let className = this.props.className ? `react-codemirror2 ${this.props.className}` : 'react-codemirror2';
 
