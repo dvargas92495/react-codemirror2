@@ -1,6 +1,6 @@
 {
   "name": "@dvargas92495/react-codemirror2",
-  "version": "7.2.8",
+  "version": "7.2.9",
   "description": "a tiny react codemirror component wrapper",
   "main": "index.js",
   "typings": "index.d.ts",
