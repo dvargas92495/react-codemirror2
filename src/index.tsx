@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as codemirror from 'codemirror';
+import * as codemirror from '@dvargas92495/codemirror';
 
 declare let global: any;
 declare let require: any;
