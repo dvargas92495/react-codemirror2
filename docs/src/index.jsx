@@ -6,8 +6,8 @@ import reducer from './reducers';
 import App from './components/App.jsx';
 
 require('./index.scss');
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/javascript/javascript');
+require('@dvargas92495/codemirror/mode/xml/xml');
+require('@dvargas92495/codemirror/mode/javascript/javascript');
 require('prismjs/components/prism-jsx');
 
 let initialState = {
